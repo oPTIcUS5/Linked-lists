@@ -125,8 +125,5 @@ int main()
         }
     } while (option != 5);
     
-
-    print_list(head);
-    
     return 0;
 }
