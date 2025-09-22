@@ -57,4 +57,49 @@ void insert_end(node **head, int data)
     }
 }
 
+void del_begin(node **head)
+{
+    node *temporal;
 
+    if(*head != NULL)
+    {
+        temporal = *head;
+        *head = (*head)->next_node;
+        free(temporal);
+    }
+}
+
+void print_list(node *head)
+{
+    node *current = head;
+
+    while (current != NULL)
+    {
+        printf("%d -> ", current->data);
+        current = current->next_node;
+    }
+    printf("NULL\n");
+}
+
+int main()
+{
+    node *head = NULL;
+
+    insert_begin(&head, 10);
+    insert_begin(&head, 20);
+    insert_begin(&head, 30);
+
+    insert_end(&head, 40);
+    insert_end(&head, 50);
+    insert_end(&head, 60);
+
+    node *current = head;
+
+    while (current != NULL)
+    {
+        printf("%d -> ", current->data);
+        current = current->next_node;
+    }
+    
+    return 0;
+}
