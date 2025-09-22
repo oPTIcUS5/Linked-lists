@@ -83,15 +83,48 @@ void print_list(node *head)
 
 int main()
 {
-    node *head = NULL;
+    node *list = NULL;
+    int option;
 
-    insert_begin(&head, 10);
-    insert_begin(&head, 20);
-    insert_begin(&head, 30);
+    do
+    {
+        printf("1. Insert at beginning\n");
+        printf("2. Insert at end\n");
+        printf("3. Delete from beginning\n");
+        printf("4. Print list\n");
+        printf("5. Exit\n");
+        printf("Choose an option: ");
+        scanf("%d", &option);
 
-    insert_end(&head, 40);
-    insert_end(&head, 50);
-    insert_end(&head, 60);
+        int data;
+
+        switch (option)
+        {
+            case 1:
+                printf("Enter data to insert at beginning: ");
+                scanf("%d", &data);
+                insert_begin(&list, data);
+                break;
+            case 2:
+                printf("Enter data to insert at end: ");
+                scanf("%d", &data);
+                insert_end(&list, data);
+                break;
+            case 3:
+                del_begin(&list);
+                break;
+            case 4:
+                print_list(list);
+                break;
+            case 5:
+                printf("Exiting...\n");
+                break;
+            default:
+                printf("Invalid option. Please try again.\n");
+                break;
+        }
+    } while (option != 5);
+    
 
     print_list(head);
     
