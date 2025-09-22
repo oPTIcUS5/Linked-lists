@@ -93,13 +93,7 @@ int main()
     insert_end(&head, 50);
     insert_end(&head, 60);
 
-    node *current = head;
-
-    while (current != NULL)
-    {
-        printf("%d -> ", current->data);
-        current = current->next_node;
-    }
+    print_list(head);
     
     return 0;
 }
