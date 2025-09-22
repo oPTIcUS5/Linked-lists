@@ -69,6 +69,34 @@ void del_begin(node **head)
     }
 }
 
+void del_end(node **head)
+{
+    node *current;
+    node *previous;
+
+    if(*head != NULL)
+    {
+        current = *head;
+
+        if(current->next_node == NULL)
+        {
+            free(current);
+            *head = NULL;
+        }
+        else
+        {
+            while (current->next_node != NULL)
+            {
+                previous = current;
+                current = current->next_node;
+            }
+
+            previous->next_node = NULL;
+            free(current);
+        }
+    }
+}
+
 void print_list(node *head)
 {
     node *current = head;
@@ -88,6 +116,7 @@ int main()
 
     do
     {
+        printf("\nMenu:\n");
         printf("1. Insert at beginning\n");
         printf("2. Insert at end\n");
         printf("3. Delete from beginning\n");
